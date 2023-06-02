@@ -1,16 +1,26 @@
+from typing import Any
+
 engAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
                'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
                'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
 colors = ['amber', 'black', 'copper', 'dark blue', 'emerald green', 
           'fairylight', 'gold', 'hazel', 'ivory', 'jade', 'khaki', 
           'maroon', 'neon', 'orange', 'purple', 'quazar', 'red', 
           'silver', 'turquoise', 'ube', 'violet', 'white', 
           'xiketic', 'yellow', 'zappo']
+
 class dragon():
     def __init__(self, height, flammability, color):
         self.height = height
         self.flammability = flammability
         self.color = color.lower()
+
+    def __call__(self, word):
+        attack = str()
+        for i in range(self.flammability):
+            attack += word
+        print(attack)
 
     def __str__(self):
         return f'Dragon with height {self.height}, danger {self.flammability} and color {self.color}.'
@@ -86,19 +96,20 @@ class dragon():
         else: return NotImplemented
 
 drake = dragon(60, 15, 'White')
-print(drake)
+print(f"drake: {drake}")
 drake2 = dragon(60, 15, 'yellow')
-print(drake2)
+print(f"drake2: {drake2}")
 print(drake == drake2)
 drake.change_color('yellow')
-print(drake)
+print(f"drake: {drake}")
 print(drake == drake2)
 drago = dragon(31, 34, 'Gold')
-print(drago)
+print(f"drago: {drago}")
 salamence = drake + drago
-print(salamence)
+print(f"salamence: {salamence}")
 drago -= 5
-print(drago)
+print(f"drago: {drago}")
 print(drake < drago, salamence <= drake2, 
       drago == salamence, drago != drake, 
       salamence > drake, drake2 >= drake)
+drake('Fire')
